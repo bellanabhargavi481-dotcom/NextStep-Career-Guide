@@ -2,17 +2,17 @@
   "name": "NextStep - Career Guide",
   "short_name": "NextStep",
   "description": "Career guidance and job search website",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/NextStep-Career-Guide/",
+  "scope": "/NextStep-Career-Guide/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#667eea",
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "/NextStep-Career-Guide/icon.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
