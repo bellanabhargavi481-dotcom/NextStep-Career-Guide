@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>NextStep - Career Guide</title>
-
+    <title>FutureStep - Career Guide</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,1065 +11,436 @@
 
 <div class="app">
 
-    <!-- =====================================================
-         WELCOME SCREEN
-    ====================================================== -->
+<!-- WELCOME -->
+<section id="welcomeScreen" class="screen active">
+    <div class="logo">🚀</div>
+    <h1>FutureStep</h1>
+    <p class="tagline">Your Next Step Starts Here</p>
 
-    <section id="welcomeScreen" class="screen active">
+    <p class="description">
+        Degree complete ayyaka mee career lo next em cheyalo
+        easy ga discover cheyyandi.
+    </p>
 
-        <div class="logo">🚀</div>
+    <button onclick="startApp()">Get Started →</button>
+</section>
 
-        <h1>NextStep</h1>
 
-        <p class="tagline">
-            Your Next Step Starts Here.
-        </p>
+<!-- DEGREE -->
+<section id="degreeScreen" class="screen">
+    <div class="top-icon">🎓</div>
 
-        <p class="description">
-            Degree complete ayyaka mee career lo
-            next em cheyalo easy ga discover cheyyandi.
-        </p>
+    <h2>Choose Your Degree</h2>
+    <p class="subtitle">Mee degree select cheyyandi.</p>
 
-        <button onclick="startApp()">
-            Get Started →
+    <div class="options">
+
+        <button onclick="selectDegree('B.Tech / B.E')">
+            💻 B.Tech / B.E
         </button>
 
-    </section>
+        <button onclick="selectDegree('B.Sc')">
+            🔬 B.Sc
+        </button>
 
+        <button onclick="selectDegree('B.Com')">
+            📊 B.Com
+        </button>
 
-    <!-- =====================================================
-         DEGREE SCREEN
-    ====================================================== -->
+        <button onclick="selectDegree('B.A')">
+            📖 B.A
+        </button>
 
-    <section id="degreeScreen" class="screen">
+        <button onclick="selectDegree('BCA')">
+            🖥️ BCA
+        </button>
 
-        <div class="top-icon">🎓</div>
+        <button onclick="selectDegree('BBA')">
+            💼 BBA
+        </button>
 
-        <h2>Choose Your Degree</h2>
+    </div>
+</section>
 
-        <p>
-            First, mee degree select cheyyandi.
-        </p>
 
-        <div class="options">
-
-            <button onclick="selectBTech()">
-                💻 B.Tech / B.E
-            </button>
-
-            <button onclick="selectBSc()">
-                🔬 B.Sc
-            </button>
-
-            <button onclick="selectBCom()">
-                📊 B.Com
-            </button>
-
-            <button onclick="selectBA()">
-                📖 B.A
-            </button>
-
-            <button onclick="selectBCA()">
-                🖥️ BCA
-            </button>
-
-            <button onclick="selectBBA()">
-                💼 BBA
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         B.TECH SUB COURSE SCREEN
-    ====================================================== -->
-
-    <section id="btechCourseScreen" class="screen">
-
-        <div class="top-icon">💻</div>
-
-        <h2>Choose Your B.Tech / B.E Course</h2>
-
-        <p>
-            Mee B.Tech / B.E specialization select cheyyandi.
-        </p>
-
-        <div class="options">
-
-            <button onclick="selectSubCourse('B.Tech Computer Science')">
-                💻 Computer Science Engineering
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Information Technology')">
-                🌐 Information Technology
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Electronics')">
-                ⚡ Electronics & Communication
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Electrical')">
-                🔌 Electrical Engineering
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Mechanical')">
-                ⚙️ Mechanical Engineering
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Civil')">
-                🏗️ Civil Engineering
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech AI & Data Science')">
-                🤖 AI & Data Science
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Biotechnology')">
-                🧬 Biotechnology
-            </button>
-
-            <button onclick="selectSubCourse('B.Tech Other')">
-                📚 Other
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         B.SC GROUP SCREEN
-    ====================================================== -->
-
-    <section id="bscGroupScreen" class="screen">
-
-        <div class="top-icon">🔬</div>
-
-        <h2>Choose Your B.Sc Group</h2>
-
-        <p>
-            Mee B.Sc specialization / group select cheyyandi.
-        </p>
-
-        <div class="options">
-
-            <button onclick="selectBScGroup('B.Sc Computer Science')">
-                💻 Computer Science
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Mathematics')">
-                ➗ Mathematics
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Physics')">
-                ⚛️ Physics
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Chemistry')">
-                🧪 Chemistry
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Statistics')">
-                📊 Statistics
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Biotechnology')">
-                🧬 Biotechnology
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Microbiology')">
-                🦠 Microbiology
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Botany')">
-                🌱 Botany
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Zoology')">
-                🐾 Zoology
-            </button>
-
-            <button onclick="selectBScGroup('B.Sc Electronics')">
-                ⚡ Electronics
-            </button>
-
-            <button onclick="selectBScGroup('Other B.Sc')">
-                📚 Other
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         B.COM SUB COURSE SCREEN
-    ====================================================== -->
-
-    <section id="bcomCourseScreen" class="screen">
-
-        <div class="top-icon">📊</div>
-
-        <h2>Choose Your B.Com Course</h2>
-
-        <p>
-            Mee B.Com specialization select cheyyandi.
-        </p>
-
-        <div class="options">
-
-            <button onclick="selectSubCourse('B.Com General')">
-                📊 B.Com General
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Computer Applications')">
-                💻 B.Com Computer Applications
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Computers')">
-                🖥️ B.Com Computers
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Finance')">
-                💰 B.Com Finance
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Accounting')">
-                🧾 B.Com Accounting
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Banking')">
-                🏦 B.Com Banking
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Taxation')">
-                📑 B.Com Taxation
-            </button>
-
-            <button onclick="selectSubCourse('B.Com Other')">
-                📚 Other
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         B.A SUB COURSE SCREEN
-    ====================================================== -->
-
-    <section id="baCourseScreen" class="screen">
-
-        <div class="top-icon">📖</div>
-
-        <h2>Choose Your B.A Course</h2>
-
-        <p>
-            Mee B.A specialization select cheyyandi.
-        </p>
-
-        <div class="options">
-
-            <button onclick="selectSubCourse('B.A English')">
-                📚 English
-            </button>
-
-            <button onclick="selectSubCourse('B.A Telugu')">
-                📝 Telugu
-            </button>
-
-            <button onclick="selectSubCourse('B.A History')">
-                🏛️ History
-            </button>
-
-            <button onclick="selectSubCourse('B.A Political Science')">
-                🏛️ Political Science
-            </button>
-
-            <button onclick="selectSubCourse('B.A Economics')">
-                📈 Economics
-            </button>
-
-            <button onclick="selectSubCourse('B.A Sociology')">
-                👥 Sociology
-            </button>
-
-            <button onclick="selectSubCourse('B.A Psychology')">
-                🧠 Psychology
-            </button>
-
-            <button onclick="selectSubCourse('B.A Journalism')">
-                📰 Journalism
-            </button>
-
-            <button onclick="selectSubCourse('B.A Other')">
-                📚 Other
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         BCA SUB COURSE SCREEN
-    ====================================================== -->
-
-    <section id="bcaCourseScreen" class="screen">
-
-        <div class="top-icon">🖥️</div>
-
-        <h2>Choose Your BCA Course</h2>
-
-        <p>
-            Mee BCA specialization select cheyyandi.
-        </p>
-
-        <div class="options">
-
-            <button onclick="selectSubCourse('BCA General')">
-                🖥️ BCA General
-            </button>
-
-            <button onclick="selectSubCourse('BCA Data Science')">
-                📊 BCA Data Science
-            </button>
-
-            <button onclick="selectSubCourse('BCA AI & Machine Learning')">
-                🤖 BCA AI & Machine Learning
-            </button>
-
-            <button onclick="selectSubCourse('BCA Cloud Computing')">
-                ☁️ BCA Cloud Computing
-            </button>
-
-            <button onclick="selectSubCourse('BCA Cyber Security')">
-                🔐 BCA Cyber Security
-            </button>
-
-            <button onclick="selectSubCourse('BCA Web Development')">
-                🌐 BCA Web Development
-            </button>
-
-            <button onclick="selectSubCourse('BCA Software Development')">
-                💻 BCA Software Development
-            </button>
-
-            <button onclick="selectSubCourse('BCA Other')">
-                📚 Other
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         BBA SUB COURSE SCREEN
-    ====================================================== -->
-
-    <section id="bbaCourseScreen" class="screen">
-
-        <div class="top-icon">💼</div>
-
-        <h2>Choose Your BBA Course</h2>
-
-        <p>
-            Mee BBA specialization select cheyyandi.
-        </p>
-
-        <div class="options">
-
-            <button onclick="selectSubCourse('BBA General')">
-                💼 BBA General
-            </button>
-
-            <button onclick="selectSubCourse('BBA Finance')">
-                💰 Finance
-            </button>
-
-            <button onclick="selectSubCourse('BBA Marketing')">
-                📣 Marketing
-            </button>
-
-            <button onclick="selectSubCourse('BBA Human Resources')">
-                👥 Human Resources
-            </button>
-
-            <button onclick="selectSubCourse('BBA Business Analytics')">
-                📊 Business Analytics
-            </button>
-
-            <button onclick="selectSubCourse('BBA International Business')">
-                🌍 International Business
-            </button>
-
-            <button onclick="selectSubCourse('BBA Entrepreneurship')">
-                🚀 Entrepreneurship
-            </button>
-
-            <button onclick="selectSubCourse('BBA Digital Marketing')">
-                📱 Digital Marketing
-            </button>
-
-            <button onclick="selectSubCourse('BBA Other')">
-                📚 Other
-            </button>
-
-        </div>
-
-    </section>
-<!-- =========================
-     SPECIALIZATION SCREEN
-========================== -->
-
-<section id="specializationScreen" class="screen">
+<!-- COURSE -->
+<section id="courseScreen" class="screen">
 
     <div class="top-icon">📚</div>
 
-    <h2 id="specializationTitle">Choose Your Specialization</h2>
+    <h2>Choose Your Course</h2>
 
-    <p id="specializationDescription">
-        Mee course specialization select cheyyandi.
-    </p>
+    <p id="courseSubtitle" class="subtitle"></p>
 
-    <div id="specializationOptions" class="options">
-        <!-- JavaScript will add options here -->
-    </div>
+    <div id="courseOptions" class="options"></div>
+
+    <button class="back" onclick="showScreen('degreeScreen')">
+        ← Back
+    </button>
 
 </section>
 
-    <!-- =====================================================
-         INTEREST SCREEN
-    ====================================================== -->
 
-    <section id="interestScreen" class="screen">
+<!-- INTEREST -->
+<section id="interestScreen" class="screen">
 
-        <div class="top-icon">🧭</div>
+    <div class="top-icon">🧭</div>
 
-        <h2>Choose Your Interest</h2>
+    <h2>Choose Your Career Interest</h2>
 
-        <p>
-            Meeku ye career field meeda interest undi?
-        </p>
+    <p class="subtitle">
+        Mee course ki suitable career field select cheyyandi.
+    </p>
 
-        <div class="options">
+    <div id="interestOptions" class="options"></div>
 
-            <button onclick="selectIT()">
-                💻 IT / Software
+    <button class="back" onclick="showScreen('courseScreen')">
+        ← Back
+    </button>
+
+</section>
+
+
+<!-- RESULT -->
+<section id="resultScreen" class="screen">
+
+    <div class="result-icon">🎯</div>
+
+    <h2>Your FutureStep</h2>
+
+    <div id="resultText" class="result-intro"></div>
+
+    <div class="result-card main-card">
+        <div class="card-icon">🎯</div>
+        <div>
+            <h3>Career Options</h3>
+            <p id="careerOptions"></p>
+        </div>
+    </div>
+
+    <div class="result-card">
+        <div class="card-icon">💰</div>
+        <div>
+            <h3>Expected Salary</h3>
+            <p id="salary"></p>
+        </div>
+    </div>
+
+    <div class="result-card">
+        <div class="card-icon">⏱️</div>
+        <div>
+            <h3>Learning / Preparation Time</h3>
+            <p id="learningTime"></p>
+        </div>
+    </div>
+
+    <div class="result-card">
+        <div class="card-icon">📚</div>
+        <div>
+            <h3>Skills To Learn</h3>
+            <p id="skills"></p>
+        </div>
+    </div>
+
+    <div class="result-card">
+        <div class="card-icon">💼</div>
+        <div>
+            <h3>Job Roles</h3>
+            <p id="jobRoles"></p>
+        </div>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="roadmap-card">
+        <h3>🗺️ Career Roadmap</h3>
+        <div id="detailedRoadmap" class="roadmap"></div>
+    </div>
+
+    <button onclick="viewJobs()">
+        🔎 View Course Jobs
+    </button>
+
+    <button onclick="showGovernment()">
+        🏛️ Government Jobs
+    </button>
+
+    <button onclick="showHigherStudies()">
+        🎓 Higher Studies
+    </button>
+
+    <button onclick="saveCareerPlan()">
+        💾 Save My Career Plan
+    </button>
+
+    <button onclick="showCareerPlan()">
+        📋 My Career Plan
+    </button>
+
+    <button onclick="restartApp()">
+        🔄 Start Again
+    </button>
+
+</section>
+
+
+<!-- JOBS -->
+<section id="jobsScreen" class="screen">
+
+    <div class="top-icon">💼</div>
+
+    <h2>Course Related Jobs</h2>
+
+    <p id="jobSubtitle" class="subtitle"></p>
+
+    <input
+        type="text"
+        id="jobSearch"
+        placeholder="Search job role..."
+    >
+
+    <button onclick="searchJobs()">
+        🔎 Search Jobs
+    </button>
+
+    <div id="jobResults" class="job-result"></div>
+
+    <button class="back" onclick="showScreen('resultScreen')">
+        ← Back
+    </button>
+
+</section>
+
+
+<!-- GOVERNMENT -->
+<section id="governmentScreen" class="screen">
+
+    <div class="top-icon">🏛️</div>
+
+    <h2>Government Jobs</h2>
+
+    <p class="subtitle">
+        Official government recruitment portals.
+    </p>
+
+    <div class="gov-options">
+
+        <div class="gov-card">
+            <h3>🇮🇳 UPSC</h3>
+            <p>UPSC Civil Services and other examinations.</p>
+            <button onclick="openSite('https://www.upsc.gov.in/')">
+                🌐 Official UPSC Website
             </button>
+        </div>
 
-            <button onclick="selectGovernment()">
-                🏛️ Government Jobs
+        <div class="gov-card">
+            <h3>📋 SSC</h3>
+            <p>SSC CGL, CHSL, MTS, GD, JE and other exams.</p>
+            <button onclick="openSite('https://ssc.gov.in/')">
+                🌐 Official SSC Website
             </button>
+        </div>
 
-            <button onclick="selectPrivate()">
-                💼 Private Jobs
+        <div class="gov-card">
+            <h3>🏦 IBPS</h3>
+            <p>Bank PO, Clerk, RRB and Specialist Officer exams.</p>
+            <button onclick="openSite('https://www.ibps.in/')">
+                🌐 Official IBPS Website
             </button>
+        </div>
 
-            <button onclick="selectHigherStudies()">
-                🎓 Higher Studies
+        <div class="gov-card">
+            <h3>🏦 SBI Careers</h3>
+            <p>SBI PO, Clerk and other recruitment.</p>
+            <button onclick="openSite('https://sbi.co.in/web/careers')">
+                🌐 SBI Careers
             </button>
+        </div>
 
-            <button onclick="selectBusiness()">
-                🚀 Business
+        <div class="gov-card">
+            <h3>🚆 Railway Jobs</h3>
+            <p>NTPC, Group D, ALP, Technician and other jobs.</p>
+            <button onclick="openSite('https://www.rrbapply.gov.in/')">
+                🌐 Railway Recruitment
             </button>
+        </div>
 
-            <button onclick="selectAbroad()">
-                ✈️ Abroad
+        <div class="gov-card">
+            <h3>💼 National Career Service</h3>
+            <p>Government career guidance and job services.</p>
+            <button onclick="openSite('https://www.ncs.gov.in/')">
+                🌐 NCS Website
             </button>
-
         </div>
 
-    </section>
+    </div>
 
+    <div class="roadmap-card">
 
-    <!-- =====================================================
-         RESULT SCREEN
-    ====================================================== -->
+        <h3>🗺️ Government Exam Roadmap</h3>
 
-    <section id="resultScreen" class="screen result">
-
-        <div class="result-icon">
-            🎯
-        </div>
-
-        <h2>Your NextStep</h2>
-
-        <p id="resultText" class="result-intro"></p>
-
-
-        <!-- CAREER OPTIONS -->
-
-        <div class="result-card main-card">
-
-            <div class="card-icon">🎯</div>
-
-            <div>
-                <h3>Career Options</h3>
-                <p id="careerOptions"></p>
-            </div>
-
-        </div>
-
-
-        <!-- SALARY -->
-
-        <div class="result-card">
-
-            <div class="card-icon">💰</div>
-
-            <div>
-                <h3>Expected Salary</h3>
-                <p id="salary"></p>
-            </div>
-
-        </div>
-
-
-        <!-- LEARNING TIME -->
-
-        <div class="result-card">
-
-            <div class="card-icon">⏱️</div>
-
-            <div>
-                <h3>Learning Time</h3>
-                <p id="learningTime"></p>
-            </div>
-
-        </div>
-
-
-        <!-- SKILLS -->
-
-        <div class="result-card">
-
-            <div class="card-icon">📚</div>
-
-            <div>
-                <h3>Skills To Learn</h3>
-                <p id="skills"></p>
-            </div>
-
-        </div>
-
-
-        <!-- JOB ROLES -->
-
-        <div class="result-card">
-
-            <div class="card-icon">💼</div>
-
-            <div>
-                <h3>Job Roles</h3>
-                <p id="jobRoles"></p>
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAILED ROADMAP
-        ================================================== -->
-
-        <div class="roadmap-card">
-
-            <h3>🗺️ Detailed Career Roadmap</h3>
-
+        <div class="month">
+            <span>1</span>
             <p>
-                Mee selected course and career path based on
-                month-wise learning plan.
+                <strong>Choose Exam</strong><br>
+                SSC / UPSC / Banking / Railway / State PSC.
             </p>
-
-            <div id="detailedRoadmap" class="roadmap">
-
-                <!-- JavaScript generates roadmap -->
-
-            </div>
-
         </div>
 
-
-        <!-- =================================================
-             GOVERNMENT JOB ROADMAP
-        ================================================== -->
-
-        <div class="roadmap-card">
-
-            <h3>🏛️ Government Job Roadmap</h3>
-
+        <div class="month">
+            <span>2</span>
             <p>
-                Government job prepare avvalante follow cheyyalsina
-                step-by-step roadmap.
+                <strong>Understand Syllabus</strong><br>
+                Syllabus and previous papers.
             </p>
-
-            <div id="governmentRoadmap" class="roadmap">
-
-                <!-- JavaScript generates Government roadmap -->
-
-            </div>
-
         </div>
 
-
-        <!-- =================================================
-             HIGHER STUDIES ROADMAP
-        ================================================== -->
-
-        <div class="roadmap-card">
-
-            <h3>🎓 Higher Studies Roadmap</h3>
-
+        <div class="month">
+            <span>3</span>
             <p>
-                Master's, PG, research or higher education kosam
-                step-by-step roadmap.
+                <strong>Build Basics</strong><br>
+                Aptitude, Reasoning, English and GK.
             </p>
-
-            <div id="higherStudiesRoadmap" class="roadmap">
-
-                <!-- JavaScript generates Higher Studies roadmap -->
-
-            </div>
-
         </div>
 
-
-        <!-- =================================================
-             ACTION BUTTONS
-        ================================================== -->
-
-        <button onclick="viewJobs()">
-            🔎 View Jobs
-        </button>
-
-        <button onclick="showScreen('governmentScreen')">
-            🏛️ Government Jobs
-        </button>
-
-        <button onclick="saveCareerPlan()">
-            💾 Save My Career Plan
-        </button>
-
-        <button onclick="showCareerPlan()">
-            📋 My Career Plan
-        </button>
-
-        <button onclick="showProgress()">
-            📈 Track My Progress
-        </button>
-
-        <button onclick="showProfile()">
-            👤 My Profile
-        </button>
-
-        <button onclick="restartApp()">
-            🔄 Start Again
-        </button>
-
-    </section>
-
-
-    <!-- =====================================================
-         JOB SEARCH SCREEN
-    ====================================================== -->
-
-    <section id="jobsScreen" class="screen">
-
-        <div class="top-icon">💼</div>
-
-        <h2>Find Your Jobs</h2>
-
-        <p>
-            Mee career ki suitable jobs search cheyyandi.
-        </p>
-
-        <div class="job-search-box">
-
-            <input
-                type="text"
-                id="jobSearch"
-                placeholder="Search job role..."
-            >
-
-            <button onclick="searchJobs()">
-                🔎 Search Jobs
-            </button>
-
-        </div>
-
-        <div id="jobResults">
-            🔎 Search for a job role above.
-        </div>
-
-        <button onclick="showScreen('resultScreen')">
-            ← Back to Career
-        </button>
-
-    </section>
-
-
-    <!-- =====================================================
-         GOVERNMENT JOBS SCREEN
-    ====================================================== -->
-
-    <section id="governmentScreen" class="screen">
-
-        <div class="jobs-card">
-
-            <div class="jobs-icon">🏛️</div>
-
-            <h2>Government Jobs</h2>
-
+        <div class="month">
+            <span>4</span>
             <p>
-                Select the type of government job
-                you want to explore.
+                <strong>Practice</strong><br>
+                Daily questions and previous papers.
             </p>
-
-            <div class="gov-options">
-
-                <button onclick="openGovJobs('SSC')">
-                    📚 SSC Jobs
-                </button>
-
-                <button onclick="openGovJobs('Banking')">
-                    🏦 Banking Jobs
-                </button>
-
-                <button onclick="openGovJobs('Railway')">
-                    🚆 Railway Jobs
-                </button>
-
-                <button onclick="openGovJobs('State Government')">
-                    🏛️ State Government Jobs
-                </button>
-
-            </div>
-
-            <button onclick="showScreen('resultScreen')">
-                ← Back to Career
-            </button>
-
         </div>
 
-    </section>
-
-
-    <!-- =====================================================
-         PROGRESS SCREEN
-    ====================================================== -->
-
-    <section id="progressScreen" class="screen">
-
-        <div class="jobs-card">
-
-            <div class="jobs-icon">📈</div>
-
-            <h2>My Career Progress</h2>
-
+        <div class="month">
+            <span>5</span>
             <p>
-                Complete your roadmap step by step.
+                <strong>Mock Tests</strong><br>
+                Full-length mock examinations.
             </p>
-
-            <div class="progress-item">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        onchange="saveProgress()"
-                    >
-
-                    Month 1 — Career Basics
-
-                </label>
-
-            </div>
-
-
-            <div class="progress-item">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        onchange="saveProgress()"
-                    >
-
-                    Month 2 — Core Skills
-
-                </label>
-
-            </div>
-
-
-            <div class="progress-item">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        onchange="saveProgress()"
-                    >
-
-                    Month 3 — Practical Practice
-
-                </label>
-
-            </div>
-
-
-            <div class="progress-item">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        onchange="saveProgress()"
-                    >
-
-                    Month 4 — Project / Exam Preparation
-
-                </label>
-
-            </div>
-
-
-            <div class="progress-item">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        onchange="saveProgress()"
-                    >
-
-                    Month 5 — Resume & Interview
-
-                </label>
-
-            </div>
-
-
-            <div class="progress-item">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        onchange="saveProgress()"
-                    >
-
-                    Month 6 — Career Applications
-
-                </label>
-
-            </div>
-
-
-            <p id="progressText">
-                Progress: 0%
-            </p>
-
-
-            <button onclick="showScreen('resultScreen')">
-                ← Back to Career
-            </button>
-
         </div>
 
-    </section>
-
-
-    <!-- =====================================================
-         MY CAREER PLAN
-    ====================================================== -->
-
-    <section id="careerPlanScreen" class="screen">
-
-        <div class="jobs-card">
-
-            <div class="jobs-icon">📋</div>
-
-            <h2>My Career Plan</h2>
-
+        <div class="month">
+            <span>6</span>
             <p>
-                Your saved career information
+                <strong>Apply</strong><br>
+                Check official notifications and apply.
             </p>
-
-
-            <div class="profile-box">
-
-                <strong>🎓 Degree</strong>
-
-                <p id="savedDegree">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>📚 Course / Specialization</strong>
-
-                <p id="savedCourse">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>🔬 B.Sc Group</strong>
-
-                <p id="savedBscGroup">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>🧭 Career Interest</strong>
-
-                <p id="savedInterest">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>📅 Saved Date</strong>
-
-                <p id="savedDate">
-                    Not Available
-                </p>
-
-            </div>
-
-
-            <button onclick="showScreen('resultScreen')">
-                ← Back to Career
-            </button>
-
         </div>
 
-    </section>
+    </div>
+
+    <button class="back" onclick="showScreen('resultScreen')">
+        ← Back
+    </button>
+
+</section>
 
 
-    <!-- =====================================================
-         PROFILE SCREEN
-    ====================================================== -->
+<!-- HIGHER STUDIES -->
+<section id="higherStudiesScreen" class="screen">
 
-    <section id="profileScreen" class="screen">
+    <div class="top-icon">🎓</div>
 
-        <div class="jobs-card">
+    <h2>Higher Studies Roadmap</h2>
 
-            <div class="jobs-icon">👤</div>
+    <p class="subtitle">
+        Mee higher studies journey ni plan cheyyandi.
+    </p>
 
-            <h2>My Profile</h2>
+    <div class="roadmap-card">
 
+        <div class="month">
+            <span>1</span>
             <p>
-                Your career information
+                <strong>Choose Specialization</strong><br>
+                Interest and career goal based on course select cheyyandi.
             </p>
-
-
-            <div class="profile-box">
-
-                <strong>👤 Name</strong>
-
-                <p id="profileName">
-                    Not Added
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>🎓 Degree</strong>
-
-                <p id="profileDegree">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>📚 Course / Specialization</strong>
-
-                <p id="profileCourse">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>🔬 B.Sc Group</strong>
-
-                <p id="profileBscGroup">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>🧭 Career Interest</strong>
-
-                <p id="profileInterest">
-                    Not Selected
-                </p>
-
-            </div>
-
-
-            <div class="profile-box">
-
-                <strong>📈 Progress</strong>
-
-                <p id="profileProgress">
-                    0%
-                </p>
-
-            </div>
-
-
-            <button onclick="editProfile()">
-                ✏️ Edit Name
-            </button>
-
-
-            <button onclick="showScreen('resultScreen')">
-                ← Back to Career
-            </button>
-
         </div>
 
-    </section>
+        <div class="month">
+            <span>2</span>
+            <p>
+                <strong>Research Colleges</strong><br>
+                Universities and eligibility check cheyyandi.
+            </p>
+        </div>
+
+        <div class="month">
+            <span>3</span>
+            <p>
+                <strong>Entrance Preparation</strong><br>
+                Required entrance examination preparation.
+            </p>
+        </div>
+
+        <div class="month">
+            <span>4</span>
+            <p>
+                <strong>Documents</strong><br>
+                Resume, certificates and marksheets ready cheyyandi.
+            </p>
+        </div>
+
+        <div class="month">
+            <span>5</span>
+            <p>
+                <strong>Applications</strong><br>
+                Selected universities ki applications submit cheyyandi.
+            </p>
+        </div>
+
+        <div class="month">
+            <span>6</span>
+            <p>
+                <strong>Admission</strong><br>
+                Best option choose cheyyandi.
+            </p>
+        </div>
+
+    </div>
+
+    <button class="back" onclick="showScreen('resultScreen')">
+        ← Back
+    </button>
+
+</section>
+
+
+<!-- CAREER PLAN -->
+<section id="careerPlanScreen" class="screen">
+
+    <div class="top-icon">📋</div>
+
+    <h2>My Career Plan</h2>
+
+    <div class="profile-box">
+        <strong>🎓 Degree</strong>
+        <p id="savedDegree">Not Selected</p>
+    </div>
+
+    <div class="profile-box">
+        <strong>📚 Course</strong>
+        <p id="savedCourse">Not Selected</p>
+    </div>
+
+    <div class="profile-box">
+        <strong>🧭 Interest</strong>
+        <p id="savedInterest">Not Selected</p>
+    </div>
+
+    <div class="profile-box">
+        <strong>📅 Saved Date</strong>
+        <p id="savedDate">Not Available</p>
+    </div>
+
+    <button class="back" onclick="showScreen('resultScreen')">
+        ← Back
+    </button>
+
+</section>
 
 </div>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
