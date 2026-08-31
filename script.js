@@ -1,1000 +1,951 @@
 // @ts-nocheck
 "use strict";
 
+/* =========================================================
+   NEXTSTEP - CAREER GUIDE
+   COMPLETE SCRIPT.JS
+========================================================= */
+
 let selectedDegree = "";
+let selectedCourse = "";
+let selectedBScGroup = "";
 let selectedInterest = "";
 
 
-/* =========================
+/* =========================================================
+   COURSE DATA
+========================================================= */
+
+const courseData = {
+
+    "B.Tech / B.E": [
+        "Computer Science Engineering (CSE)",
+        "Information Technology (IT)",
+        "Artificial Intelligence & Machine Learning (AI & ML)",
+        "Artificial Intelligence & Data Science",
+        "Electronics & Communication Engineering (ECE)",
+        "Electrical & Electronics Engineering (EEE)",
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Chemical Engineering"
+    ],
+
+    "B.Com": [
+        "B.Com General",
+        "B.Com Computer Applications",
+        "B.Com Honours",
+        "B.Com Accounting & Finance",
+        "B.Com Banking & Insurance",
+        "B.Com Taxation",
+        "B.Com Business Analytics"
+    ],
+
+    "B.A": [
+        "B.A English",
+        "B.A Economics",
+        "B.A History",
+        "B.A Political Science",
+        "B.A Sociology",
+        "B.A Psychology",
+        "B.A Journalism & Mass Communication",
+        "B.A Public Administration",
+        "B.A Telugu"
+    ],
+
+    "BCA": [
+        "BCA General",
+        "BCA Data Science",
+        "BCA Artificial Intelligence",
+        "BCA Cyber Security",
+        "BCA Cloud Computing",
+        "BCA Web Development",
+        "BCA Mobile App Development"
+    ],
+
+    "BBA": [
+        "BBA General",
+        "BBA Finance",
+        "BBA Marketing",
+        "BBA Human Resources",
+        "BBA International Business",
+        "BBA Business Analytics",
+        "BBA Digital Marketing",
+        "BBA Entrepreneurship"
+    ],
+
+    "B.Sc": [
+        "B.Sc Computer Science",
+        "B.Sc Mathematics",
+        "B.Sc Physics",
+        "B.Sc Chemistry",
+        "B.Sc Statistics",
+        "B.Sc Biotechnology",
+        "B.Sc Microbiology",
+        "B.Sc Botany",
+        "B.Sc Zoology",
+        "B.Sc Electronics"
+    ]
+};
+
+
+/* =========================================================
+   CAREER DATA
+========================================================= */
+
+const careerData = {
+
+    "IT / Software": {
+        career:
+            "Software Development, Web Development, Data Analytics, Cloud Computing, Cyber Security",
+
+        salary:
+            "₹3 LPA – ₹12+ LPA",
+
+        time:
+            "4 – 8 months",
+
+        skills:
+            "Programming, Problem Solving, Git, SQL, Communication",
+
+        roles:
+            "Software Developer, Web Developer, Frontend Developer, Backend Developer, Data Analyst",
+
+        roadmap: [
+            "Month 1 — Programming Basics",
+            "Month 2 — HTML, CSS & JavaScript",
+            "Month 3 — SQL & Git/GitHub",
+            "Month 4 — Build Projects",
+            "Month 5 — Resume & Interview Preparation",
+            "Month 6 — Apply for Jobs & Internships"
+        ]
+    },
+
+    "Government Jobs": {
+        career:
+            "SSC, Banking, Railway, State Government and other competitive examinations",
+
+        salary:
+            "₹3 LPA – ₹10+ LPA",
+
+        time:
+            "6 – 12 months",
+
+        skills:
+            "Quantitative Aptitude, Reasoning, English, General Awareness, Current Affairs",
+
+        roles:
+            "SSC Officer, Bank PO/Clerk, Railway Employee, State Government Jobs",
+
+        roadmap: [
+            "Month 1 — Exam Pattern & Basics",
+            "Month 2 — Quantitative Aptitude",
+            "Month 3 — Reasoning & English",
+            "Month 4 — General Awareness & Current Affairs",
+            "Month 5 — Previous Papers & Mock Tests",
+            "Month 6 — Final Exam Preparation"
+        ]
+    },
+
+    "Private Jobs": {
+        career:
+            "Corporate Jobs, Operations, Sales, HR, Finance and Customer Support",
+
+        salary:
+            "₹2.5 LPA – ₹8+ LPA",
+
+        time:
+            "2 – 6 months",
+
+        skills:
+            "Communication, MS Office, Teamwork, Problem Solving, Interview Skills",
+
+        roles:
+            "Executive, Analyst, HR Executive, Sales Executive, Operations Executive",
+
+        roadmap: [
+            "Month 1 — Professional Basics",
+            "Month 2 — MS Office & Communication",
+            "Month 3 — Domain Skills",
+            "Month 4 — Resume & LinkedIn",
+            "Month 5 — Interview Practice",
+            "Month 6 — Job Applications"
+        ]
+    },
+
+    "Higher Studies": {
+        career:
+            "M.Tech, MBA, MCA, M.Sc, M.Com, M.A and other postgraduate programs",
+
+        salary:
+            "Depends on specialization and career path",
+
+        time:
+            "1 – 3 years",
+
+        skills:
+            "Subject Knowledge, Research, Academic Writing, Communication",
+
+        roles:
+            "Postgraduate Student, Research Assistant, Lecturer, Specialist",
+
+        roadmap: [
+            "Month 1 — Select Higher Study",
+            "Month 2 — Entrance Exam Research",
+            "Month 3 — Entrance Preparation",
+            "Month 4 — Applications & Documents",
+            "Month 5 — Mock Tests / Preparation",
+            "Month 6 — College Admission"
+        ]
+    },
+
+    "Business": {
+        career:
+            "Startup, Entrepreneurship, Online Business, Retail Business and Consulting",
+
+        salary:
+            "Depends on business and revenue",
+
+        time:
+            "3 – 12 months",
+
+        skills:
+            "Marketing, Finance, Sales, Communication, Leadership",
+
+        roles:
+            "Entrepreneur, Business Owner, Marketing Manager, Sales Manager",
+
+        roadmap: [
+            "Month 1 — Business Idea",
+            "Month 2 — Market Research",
+            "Month 3 — Business Model",
+            "Month 4 — Marketing & Sales",
+            "Month 5 — Finance & Operations",
+            "Month 6 — Launch & Growth"
+        ]
+    },
+
+    "Abroad": {
+        career:
+            "International Higher Studies, International Jobs and Global Careers",
+
+        salary:
+            "Depends on country, qualification and job role",
+
+        time:
+            "6 – 18 months",
+
+        skills:
+            "English, IELTS/PTE, Communication, Technical Skills",
+
+        roles:
+            "International Student, Software Developer, Analyst, Business Professional",
+
+        roadmap: [
+            "Month 1 — Select Country & Course",
+            "Month 2 — IELTS/PTE Preparation",
+            "Month 3 — University Research",
+            "Month 4 — Applications & Documents",
+            "Month 5 — Visa & Financial Preparation",
+            "Month 6 — Travel & Career Preparation"
+        ]
+    }
+};
+
+
+/* =========================================================
    START APP
-========================= */
+========================================================= */
 
 function startApp() {
+
+    selectedDegree = "";
+    selectedCourse = "";
+    selectedBScGroup = "";
+    selectedInterest = "";
+
     showScreen("degreeScreen");
 }
 
 
-/* =========================
-   DEGREE SELECTION
-========================= */
-
-function selectBTech() {
-    selectedDegree = "B.Tech / B.E";
-    showScreen("interestScreen");
-}
-
-function selectBSc() {
-    selectedDegree = "B.Sc";
-    showScreen("interestScreen");
-}
-
-function selectBCom() {
-    selectedDegree = "B.Com";
-    showScreen("interestScreen");
-}
-
-function selectBA() {
-    selectedDegree = "B.A";
-    showScreen("interestScreen");
-}
-
-function selectBCA() {
-    selectedDegree = "BCA";
-    showScreen("interestScreen");
-}
-
-function selectBBA() {
-    selectedDegree = "BBA";
-    showScreen("interestScreen");
-}
-
-
-/* =========================
-   INTEREST SELECTION
-========================= */
-
-function selectIT() {
-    selectedInterest = "IT / Software";
-    showResult();
-}
-
-function selectGovernment() {
-    selectedInterest = "Government Jobs";
-    showResult();
-}
-
-function selectPrivate() {
-    selectedInterest = "Private Jobs";
-    showResult();
-}
-
-function selectHigherStudies() {
-    selectedInterest = "Higher Studies";
-    showResult();
-}
-
-function selectBusiness() {
-    selectedInterest = "Business";
-    showResult();
-}
-
-function selectAbroad() {
-    selectedInterest = "Abroad";
-    showResult();
-}
-
-
-/* =========================
-   SCREEN CONTROL
-========================= */
+/* =========================================================
+   SCREEN FUNCTION
+========================================================= */
 
 function showScreen(screenId) {
 
-    const selectedScreen =
-        document.getElementById(screenId);
-
-    if (!selectedScreen) {
-        console.log("Screen not found: " + screenId);
-        return;
-    }
-
-    const screens =
-        document.querySelectorAll(".screen");
+    const screens = document.querySelectorAll(".screen");
 
     screens.forEach(function(screen) {
         screen.classList.remove("active");
     });
 
-    selectedScreen.classList.add("active");
+    const target = document.getElementById(screenId);
+
+    if (target) {
+        target.classList.add("active");
+        window.scrollTo(0, 0);
+    }
 }
 
 
-/* =========================
-   SHOW RESULT
-========================= */
+/* =========================================================
+   DEGREE SELECTION
+========================================================= */
 
-function showResult() {
+function selectBTech() {
+    selectDegree("B.Tech / B.E");
+}
 
-    generateCareer();
+function selectBSc() {
+    selectedDegree = "B.Sc";
+    selectedCourse = "";
+
+    showBScGroups();
+}
+
+function selectBCom() {
+    selectDegree("B.Com");
+}
+
+function selectBA() {
+    selectDegree("B.A");
+}
+
+function selectBCA() {
+    selectDegree("BCA");
+}
+
+function selectBBA() {
+    selectDegree("BBA");
+}
+
+
+/* =========================================================
+   SELECT DEGREE
+========================================================= */
+
+function selectDegree(degree) {
+
+    selectedDegree = degree;
+    selectedCourse = "";
+
+    if (degree === "B.Sc") {
+        showBScGroups();
+        return;
+    }
+
+    showCourseScreen(degree);
+}
+
+
+/* =========================================================
+   B.SC GROUP SCREEN
+========================================================= */
+
+function showBScGroups() {
+
+    let screen = document.getElementById("bscGroupScreen");
+
+    if (!screen) {
+        return;
+    }
+
+    showScreen("bscGroupScreen");
+}
+
+
+/* =========================================================
+   SELECT B.SC GROUP
+========================================================= */
+
+function selectBScGroup(group) {
+
+    selectedDegree = "B.Sc";
+    selectedBScGroup = group;
+    selectedCourse = group;
+
+    showInterestScreen();
+}
+
+
+/* =========================================================
+   DYNAMIC COURSE SCREEN
+========================================================= */
+
+function showCourseScreen(degree) {
+
+    let oldScreen = document.getElementById("courseScreen");
+
+    if (oldScreen) {
+        oldScreen.remove();
+    }
+
+    const courses = courseData[degree] || [];
+
+    const screen = document.createElement("section");
+
+    screen.id = "courseScreen";
+    screen.className = "screen";
+
+    const icon = document.createElement("div");
+    icon.className = "top-icon";
+    icon.textContent = "📚";
+
+    const heading = document.createElement("h2");
+    heading.textContent = "Choose Your Course";
+
+    const description = document.createElement("p");
+    description.textContent =
+        "Mee " + degree + " lo specialization / sub-course select cheyyandi.";
+
+    const options = document.createElement("div");
+    options.className = "options";
+
+    courses.forEach(function(course) {
+
+        const button = document.createElement("button");
+
+        button.textContent = getCourseIcon(course) + " " + course;
+
+        button.onclick = function() {
+            selectCourse(course);
+        };
+
+        options.appendChild(button);
+    });
+
+    screen.appendChild(icon);
+    screen.appendChild(heading);
+    screen.appendChild(description);
+    screen.appendChild(options);
+
+    const app = document.querySelector(".app");
+
+    if (app) {
+        app.appendChild(screen);
+    }
+
+    showScreen("courseScreen");
+}
+
+
+/* =========================================================
+   COURSE ICON
+========================================================= */
+
+function getCourseIcon(course) {
+
+    const text = course.toLowerCase();
+
+    if (
+        text.includes("computer") ||
+        text.includes("information technology") ||
+        text.includes("artificial intelligence") ||
+        text.includes("data science") ||
+        text.includes("cyber") ||
+        text.includes("cloud") ||
+        text.includes("web") ||
+        text.includes("mobile")
+    ) {
+        return "💻";
+    }
+
+    if (
+        text.includes("electronics") ||
+        text.includes("electrical")
+    ) {
+        return "⚡";
+    }
+
+    if (text.includes("mechanical")) {
+        return "⚙️";
+    }
+
+    if (text.includes("civil")) {
+        return "🏗️";
+    }
+
+    if (
+        text.includes("commerce") ||
+        text.includes("accounting") ||
+        text.includes("finance") ||
+        text.includes("banking") ||
+        text.includes("tax")
+    ) {
+        return "📊";
+    }
+
+    if (
+        text.includes("english") ||
+        text.includes("history") ||
+        text.includes("political") ||
+        text.includes("sociology") ||
+        text.includes("psychology") ||
+        text.includes("journalism") ||
+        text.includes("telugu")
+    ) {
+        return "📖";
+    }
+
+    if (
+        text.includes("marketing") ||
+        text.includes("human") ||
+        text.includes("international") ||
+        text.includes("business") ||
+        text.includes("entrepreneur")
+    ) {
+        return "💼";
+    }
+
+    if (
+        text.includes("physics") ||
+        text.includes("chemistry") ||
+        text.includes("mathematics") ||
+        text.includes("statistics")
+    ) {
+        return "🔬";
+    }
+
+    if (
+        text.includes("biotechnology") ||
+        text.includes("microbiology")
+    ) {
+        return "🧬";
+    }
+
+    if (
+        text.includes("botany")
+    ) {
+        return "🌱";
+    }
+
+    if (
+        text.includes("zoology")
+    ) {
+        return "🐾";
+    }
+
+    return "📚";
+}
+
+
+/* =========================================================
+   SELECT COURSE
+========================================================= */
+
+function selectCourse(course) {
+
+    selectedCourse = course;
+
+    showInterestScreen();
+}
+
+
+/* =========================================================
+   INTEREST SCREEN
+========================================================= */
+
+function showInterestScreen() {
+
+    showScreen("interestScreen");
+}
+
+
+/* =========================================================
+   INTEREST FUNCTIONS
+========================================================= */
+
+function selectIT() {
+    selectInterest("IT / Software");
+}
+
+function selectGovernment() {
+    selectInterest("Government Jobs");
+}
+
+function selectPrivate() {
+    selectInterest("Private Jobs");
+}
+
+function selectHigherStudies() {
+    selectInterest("Higher Studies");
+}
+
+function selectBusiness() {
+    selectInterest("Business");
+}
+
+function selectAbroad() {
+    selectInterest("Abroad");
+}
+
+
+/* =========================================================
+   SELECT INTEREST
+========================================================= */
+
+function selectInterest(interest) {
+
+    selectedInterest = interest;
+
+    generateResult();
 
     showScreen("resultScreen");
 }
 
 
-/* =========================
-   SMART CAREER ENGINE
-========================= */
+/* =========================================================
+   GENERATE RESULT
+========================================================= */
 
-function generateCareer() {
+function generateResult() {
 
-    let careerTitle = "";
-    let careerOptions = "";
-    let salary = "";
-    let learningTime = "";
-    let skills = "";
-    let jobRoles = "";
-    let roadmap = "";
+    const data = careerData[selectedInterest];
 
-
-    /* B.TECH / B.E + IT */
-
-    if (
-        selectedDegree === "B.Tech / B.E" &&
-        selectedInterest === "IT / Software"
-    ) {
-
-        careerTitle =
-            "💻 Technology Career Path";
-
-        careerOptions =
-            "Software Developer\n" +
-            "Frontend Developer\n" +
-            "Backend Developer\n" +
-            "Full Stack Developer";
-
-        salary =
-            "₹3 - ₹8 LPA for many entry-level roles";
-
-        learningTime =
-            "6 - 12 months";
-
-        skills =
-            "Programming\n" +
-            "HTML & CSS\n" +
-            "JavaScript\n" +
-            "Python / Java\n" +
-            "Git & GitHub\n" +
-            "Problem Solving";
-
-        jobRoles =
-            "Software Developer\n" +
-            "Web Developer\n" +
-            "Frontend Developer\n" +
-            "Backend Developer";
-
-        roadmap =
-            "Month 1 → Programming Basics\n" +
-            "Month 2 → HTML, CSS & JavaScript\n" +
-            "Month 3 → Learn Python / Java\n" +
-            "Month 4 → Build Projects\n" +
-            "Month 5 → GitHub + Resume\n" +
-            "Month 6 → Apply for Jobs";
+    if (!data) {
+        return;
     }
-
-
-    /* BCA + IT */
-
-    else if (
-        selectedDegree === "BCA" &&
-        selectedInterest === "IT / Software"
-    ) {
-
-        careerTitle =
-            "💻 Software & Web Development";
-
-        careerOptions =
-            "Web Developer\n" +
-            "Software Developer\n" +
-            "Frontend Developer\n" +
-            "QA Tester";
-
-        salary =
-            "₹2.5 - ₹6 LPA for many entry-level roles";
-
-        learningTime =
-            "6 - 12 months";
-
-        skills =
-            "HTML\n" +
-            "CSS\n" +
-            "JavaScript\n" +
-            "Python\n" +
-            "SQL\n" +
-            "Git";
-
-        jobRoles =
-            "Web Developer\n" +
-            "Junior Software Developer\n" +
-            "QA Tester\n" +
-            "Support Engineer";
-
-        roadmap =
-            "Month 1 → HTML & CSS\n" +
-            "Month 2 → JavaScript\n" +
-            "Month 3 → Python + SQL\n" +
-            "Month 4 → Projects\n" +
-            "Month 5 → Resume + GitHub\n" +
-            "Month 6 → Job Applications";
-    }
-
-
-    /* B.COM + GOVERNMENT */
-
-    else if (
-        selectedDegree === "B.Com" &&
-        selectedInterest === "Government Jobs"
-    ) {
-
-        careerTitle =
-            "🏛️ Banking & Government Career";
-
-        careerOptions =
-            "Banking Exams\n" +
-            "SSC Exams\n" +
-            "State Government Jobs\n" +
-            "Insurance Exams";
-
-        salary =
-            "Depends on the exam, post and pay level";
-
-        learningTime =
-            "6 - 18 months";
-
-        skills =
-            "Quantitative Aptitude\n" +
-            "Reasoning\n" +
-            "English\n" +
-            "General Awareness\n" +
-            "Current Affairs";
-
-        jobRoles =
-            "Bank Clerk\n" +
-            "Bank PO\n" +
-            "SSC Roles\n" +
-            "State Government Roles";
-
-        roadmap =
-            "Month 1 → Choose target exam\n" +
-            "Month 2 → Maths Basics\n" +
-            "Month 3 → Reasoning\n" +
-            "Month 4 → English + GK\n" +
-            "Month 5 → Previous Papers\n" +
-            "Month 6 → Mock Tests";
-    }
-
-
-    /* B.COM + PRIVATE */
-
-    else if (
-        selectedDegree === "B.Com" &&
-        selectedInterest === "Private Jobs"
-    ) {
-
-        careerTitle =
-            "💼 Commerce & Corporate Career";
-
-        careerOptions =
-            "Accountant\n" +
-            "Financial Analyst\n" +
-            "HR Executive\n" +
-            "Business Operations";
-
-        salary =
-            "₹2.5 - ₹7 LPA depending on role and company";
-
-        learningTime =
-            "3 - 6 months";
-
-        skills =
-            "Advanced Excel\n" +
-            "Tally / Accounting Basics\n" +
-            "Communication\n" +
-            "Financial Analysis\n" +
-            "MS Office";
-
-        jobRoles =
-            "Accountant\n" +
-            "Finance Executive\n" +
-            "HR Executive\n" +
-            "Operations Executive";
-
-        roadmap =
-            "Month 1 → Excel\n" +
-            "Month 2 → Accounting Skills\n" +
-            "Month 3 → Tally / Finance Basics\n" +
-            "Month 4 → Resume\n" +
-            "Month 5 → Interview Practice\n" +
-            "Month 6 → Apply for Jobs";
-    }
-
-
-    /* BBA + BUSINESS */
-
-    else if (
-        selectedDegree === "BBA" &&
-        selectedInterest === "Business"
-    ) {
-
-        careerTitle =
-            "🚀 Business & Entrepreneurship";
-
-        careerOptions =
-            "Entrepreneur\n" +
-            "Startup Founder\n" +
-            "Digital Business\n" +
-            "Freelancing";
-
-        salary =
-            "Business income varies based on performance";
-
-        learningTime =
-            "3 - 12 months to start";
-
-        skills =
-            "Marketing\n" +
-            "Sales\n" +
-            "Finance Basics\n" +
-            "Leadership\n" +
-            "Communication";
-
-        jobRoles =
-            "Entrepreneur\n" +
-            "Business Development Executive\n" +
-            "Marketing Executive\n" +
-            "Freelancer";
-
-        roadmap =
-            "Month 1 → Find an Idea\n" +
-            "Month 2 → Market Research\n" +
-            "Month 3 → Customer Research\n" +
-            "Month 4 → Build Small Product\n" +
-            "Month 5 → Marketing\n" +
-            "Month 6 → Launch & Improve";
-    }
-
-
-    /* BA + HIGHER STUDIES */
-
-    else if (
-        selectedDegree === "B.A" &&
-        selectedInterest === "Higher Studies"
-    ) {
-
-        careerTitle =
-            "🎓 Higher Education Path";
-
-        careerOptions =
-            "Master's Degree\n" +
-            "MBA\n" +
-            "Competitive Exams\n" +
-            "Professional Courses";
-
-        salary =
-            "Depends on the specialization and career selected";
-
-        learningTime =
-            "1 - 3 years";
-
-        skills =
-            "Communication\n" +
-            "Research\n" +
-            "Writing\n" +
-            "Subject Knowledge";
-
-        jobRoles =
-            "Depends on selected specialization";
-
-        roadmap =
-            "Month 1 → Explore Courses\n" +
-            "Month 2 → Compare Colleges\n" +
-            "Month 3 → Check Eligibility\n" +
-            "Month 4 → Entrance Preparation\n" +
-            "Month 5 → Applications\n" +
-            "Month 6 → Admission Planning";
-    }
-
-
-    /* DEFAULT */
-
-    else {
-
-        careerTitle =
-            "🎯 Recommended Career Path";
-
-        careerOptions =
-            getGeneralCareerOptions();
-
-        salary =
-            getGeneralSalary();
-
-        learningTime =
-            "3 - 12 months";
-
-        skills =
-            getGeneralSkills();
-
-        jobRoles =
-            getGeneralJobs();
-
-        roadmap =
-            getGeneralRoadmap();
-    }
-
-
-    /* =========================
-       DISPLAY RESULT
-    ========================= */
 
     const resultText =
-        document.getElementById("resultText");
+        "Based on your " +
+        selectedDegree +
+        (selectedCourse ? " - " + selectedCourse : "") +
+        " and interest in " +
+        selectedInterest +
+        ", here is your career plan.";
 
-    const careerOptionsElement =
-        document.getElementById("careerOptions");
+    setText("resultText", resultText);
 
-    const salaryElement =
-        document.getElementById("salary");
+    setText("careerOptions", data.career);
+    setText("salary", data.salary);
+    setText("learningTime", data.time);
+    setText("skills", data.skills);
+    setText("jobRoles", data.roles);
 
-    const learningTimeElement =
-        document.getElementById("learningTime");
+    generateRoadmap(data.roadmap);
 
-    const skillsElement =
-        document.getElementById("skills");
-
-    const jobRolesElement =
-        document.getElementById("jobRoles");
-
-    const careerPath =
-        document.getElementById("careerPath");
+    updateSavedInformation();
+}
 
 
-    if (resultText) {
+/* =========================================================
+   SET TEXT
+========================================================= */
 
-        resultText.innerText =
-            careerTitle +
-            "\n\n🎓 Degree: " +
-            selectedDegree +
-            "\n🧭 Interest: " +
-            selectedInterest;
-    }
+function setText(id, text) {
 
-    if (careerOptionsElement) {
-        careerOptionsElement.innerText =
-            careerOptions;
-    }
+    const element = document.getElementById(id);
 
-    if (salaryElement) {
-        salaryElement.innerText =
-            salary;
-    }
-
-    if (learningTimeElement) {
-        learningTimeElement.innerText =
-            learningTime;
-    }
-
-    if (skillsElement) {
-        skillsElement.innerText =
-            skills;
-    }
-
-    if (jobRolesElement) {
-        jobRolesElement.innerText =
-            jobRoles;
-    }
-
-    if (careerPath) {
-
-        careerPath.innerText =
-            "🎯 CAREER OPTIONS\n\n" +
-            careerOptions +
-
-            "\n\n💰 EXPECTED SALARY\n\n" +
-            salary +
-
-            "\n\n⏱️ LEARNING TIME\n\n" +
-            learningTime +
-
-            "\n\n📚 SKILLS TO LEARN\n\n" +
-            skills +
-
-            "\n\n💼 JOB ROLES\n\n" +
-            jobRoles +
-
-            "\n\n🗺️ 6-MONTH ROADMAP\n\n" +
-            roadmap;
+    if (element) {
+        element.textContent = text;
     }
 }
 
 
-/* =========================
-   GENERAL RECOMMENDATIONS
-========================= */
+/* =========================================================
+   ROADMAP
+========================================================= */
 
-function getGeneralCareerOptions() {
+function generateRoadmap(roadmapItems) {
 
-    if (selectedInterest === "IT / Software") {
-        return (
-            "Web Developer\n" +
-            "Software Developer\n" +
-            "QA Tester"
-        );
+    const roadmap = document.getElementById("detailedRoadmap");
+
+    if (!roadmap) {
+        return;
     }
 
-    if (selectedInterest === "Government Jobs") {
-        return (
-            "SSC\n" +
-            "Banking\n" +
-            "Railway\n" +
-            "State Government Jobs"
-        );
-    }
+    roadmap.innerHTML = "";
 
-    if (selectedInterest === "Private Jobs") {
-        return (
-            "HR\n" +
-            "Sales\n" +
-            "Operations\n" +
-            "Customer Support"
-        );
-    }
+    roadmapItems.forEach(function(item, index) {
 
-    if (selectedInterest === "Higher Studies") {
-        return (
-            "MBA\n" +
-            "Master's Degree\n" +
-            "PG Courses"
-        );
-    }
+        const box = document.createElement("div");
 
-    if (selectedInterest === "Business") {
-        return (
-            "Startup\n" +
-            "Small Business\n" +
-            "Freelancing"
-        );
-    }
+        box.className = "roadmap-item";
 
-    return (
-        "Higher Studies\n" +
-        "Private Jobs\n" +
-        "Government Jobs"
-    );
+        const number = document.createElement("strong");
+
+        number.textContent = "Step " + (index + 1);
+
+        const text = document.createElement("p");
+
+        text.textContent = item;
+
+        box.appendChild(number);
+        box.appendChild(text);
+
+        roadmap.appendChild(box);
+    });
 }
 
 
-function getGeneralSalary() {
-
-    if (selectedInterest === "IT / Software") {
-        return "₹3 - ₹8 LPA for many entry-level roles";
-    }
-
-    if (selectedInterest === "Private Jobs") {
-        return "₹2.5 - ₹7 LPA depending on role";
-    }
-
-    if (selectedInterest === "Government Jobs") {
-        return "Depends on exam, post and pay level";
-    }
-
-    return "Depends on career path and experience";
-}
-
-
-function getGeneralSkills() {
-
-    if (selectedInterest === "IT / Software") {
-        return (
-            "Programming\n" +
-            "Web Development\n" +
-            "Problem Solving"
-        );
-    }
-
-    if (selectedInterest === "Government Jobs") {
-        return (
-            "Maths\n" +
-            "Reasoning\n" +
-            "English\n" +
-            "General Awareness"
-        );
-    }
-
-    if (selectedInterest === "Business") {
-        return (
-            "Marketing\n" +
-            "Sales\n" +
-            "Communication\n" +
-            "Leadership"
-        );
-    }
-
-    return (
-        "Communication\n" +
-        "Computer Skills\n" +
-        "Problem Solving"
-    );
-}
-
-
-function getGeneralJobs() {
-
-    if (selectedInterest === "IT / Software") {
-        return (
-            "Web Developer\n" +
-            "Software Developer\n" +
-            "QA Tester"
-        );
-    }
-
-    if (selectedInterest === "Government Jobs") {
-        return (
-            "SSC Jobs\n" +
-            "Banking Jobs\n" +
-            "Railway Jobs"
-        );
-    }
-
-    if (selectedInterest === "Business") {
-        return (
-            "Entrepreneur\n" +
-            "Business Development\n" +
-            "Freelancer"
-        );
-    }
-
-    return (
-        "Executive Roles\n" +
-        "Support Roles\n" +
-        "Management Roles"
-    );
-}
-
-
-function getGeneralRoadmap() {
-
-    return (
-        "Month 1 → Explore Career Options\n" +
-        "Month 2 → Learn Basic Skills\n" +
-        "Month 3 → Practice Skills\n" +
-        "Month 4 → Build Projects / Prepare\n" +
-        "Month 5 → Resume & Interview\n" +
-        "Month 6 → Apply for Opportunities"
-    );
-}
-
-
-/* =========================
-   VIEW JOBS
-========================= */
+/* =========================================================
+   JOB SEARCH
+========================================================= */
 
 function viewJobs() {
 
     showScreen("jobsScreen");
 
-    const jobSearch =
-        document.getElementById("jobSearch");
+    const input = document.getElementById("jobSearch");
 
-    const jobResults =
-        document.getElementById("jobResults");
-
-    if (jobSearch) {
-        jobSearch.value = "";
+    if (input) {
+        input.value = "";
     }
 
-    if (jobResults) {
-        jobResults.innerText =
-            "🔎 Search for a job role above.";
-    }
+    setText(
+        "jobResults",
+        "🔎 Search for a job role above."
+    );
 }
 
 
-/* =========================
-   SEARCH JOBS
-========================= */
-
 function searchJobs() {
 
-    const jobSearch =
-        document.getElementById("jobSearch");
+    const input = document.getElementById("jobSearch");
 
-    const jobResults =
-        document.getElementById("jobResults");
+    const results = document.getElementById("jobResults");
 
-    if (!jobSearch || !jobResults) {
+    if (!input || !results) {
         return;
     }
 
-    const searchText =
-        jobSearch.value.trim().toLowerCase();
+    const searchText = input.value.trim().toLowerCase();
 
     if (searchText === "") {
 
-        jobResults.innerText =
-            "🔎 Please enter a job role.";
+        results.textContent =
+            "Please enter a job role to search.";
 
         return;
     }
 
     const jobs = [
 
-        {
-            name: "💻 Software Developer",
-            keyword: "software developer"
-        },
-
-        {
-            name: "🌐 Web Developer",
-            keyword: "web developer"
-        },
-
-        {
-            name: "⚛️ Frontend Developer",
-            keyword: "frontend developer"
-        },
-
-        {
-            name: "🖥️ Backend Developer",
-            keyword: "backend developer"
-        },
-
-        {
-            name: "🧪 QA Tester",
-            keyword: "qa tester"
-        },
-
-        {
-            name: "📊 Data Analyst",
-            keyword: "data analyst"
-        },
-
-        {
-            name: "🐍 Python Developer",
-            keyword: "python developer"
-        },
-
-        {
-            name: "☕ Java Developer",
-            keyword: "java developer"
-        }
+        "Software Developer",
+        "Web Developer",
+        "Frontend Developer",
+        "Backend Developer",
+        "Data Analyst",
+        "Data Scientist",
+        "Cloud Engineer",
+        "Cyber Security Analyst",
+        "HR Executive",
+        "Marketing Executive",
+        "Sales Executive",
+        "Business Analyst",
+        "Accountant",
+        "Bank PO",
+        "Bank Clerk",
+        "SSC Officer",
+        "Railway Jobs",
+        "Government Assistant",
+        "Customer Support Executive",
+        "Operations Executive"
     ];
 
+    const matchedJobs = jobs.filter(function(job) {
 
-    const results =
-        jobs.filter(function(job) {
+        return job.toLowerCase().includes(searchText);
+    });
 
-            return (
-                job.keyword.includes(searchText) ||
-                searchText.includes(job.keyword)
-            );
-        });
+    results.innerHTML = "";
 
+    if (matchedJobs.length === 0) {
 
-    if (results.length === 0) {
-
-        jobResults.innerHTML =
-            "❌ No jobs found for <b>" +
-            searchText +
-            "</b><br><br>" +
-            "Try Software Developer, Web Developer or QA Tester.";
+        results.textContent =
+            "❌ No matching jobs found. Try another job role.";
 
         return;
     }
 
+    const heading = document.createElement("h3");
 
-    let html =
-        "<h3>🔎 Jobs Found</h3>";
+    heading.textContent = "Available Job Roles";
 
+    results.appendChild(heading);
 
-    results.forEach(function(job) {
+    matchedJobs.forEach(function(job) {
 
-        const role =
-            encodeURIComponent(job.keyword);
+        const item = document.createElement("div");
 
-        html += `
+        item.className = "result-card";
 
-            <div class="job-item">
+        const icon = document.createElement("div");
 
-                <div class="job-name">
-                    ${job.name}
-                </div>
+        icon.className = "card-icon";
 
-                <div class="job-buttons">
+        icon.textContent = "💼";
 
-                    <button
-                        class="apply-btn"
-                        onclick="window.open(
-                        'https://www.linkedin.com/jobs/search/?keywords=${role}',
-                        '_blank')">
-                        LinkedIn
-                    </button>
+        const content = document.createElement("div");
 
-                    <button
-                        class="apply-btn"
-                        onclick="window.open(
-                        'https://www.naukri.com/${job.keyword.replace(/ /g, '-')}-jobs',
-                        '_blank')">
-                        Naukri
-                    </button>
+        const title = document.createElement("h3");
 
-                    <button
-                        class="apply-btn"
-                        onclick="window.open(
-                        'https://www.indeed.com/jobs?q=${role}',
-                        '_blank')">
-                        Indeed
-                    </button>
+        title.textContent = job;
 
-                </div>
+        const text = document.createElement("p");
 
-            </div>
-        `;
+        text.textContent =
+            "Suitable opportunity for your selected career path.";
+
+        content.appendChild(title);
+        content.appendChild(text);
+
+        item.appendChild(icon);
+        item.appendChild(content);
+
+        results.appendChild(item);
     });
-
-
-    jobResults.innerHTML = html;
 }
 
 
-/* =========================
+/* =========================================================
+   GOVERNMENT JOBS
+========================================================= */
+
+function openGovJobs(type) {
+
+    const websites = {
+
+        "SSC":
+            "Search for SSC notifications, SSC CGL, CHSL and other SSC examinations.",
+
+        "Banking":
+            "Search for IBPS, SBI and other banking examinations.",
+
+        "Railway":
+            "Search for Railway recruitment notifications and examinations.",
+
+        "State Government":
+            "Search for your state government recruitment notifications."
+    };
+
+    const message =
+        websites[type] ||
+        "Government job information.";
+
+    alert(
+        "🏛️ " +
+        type +
+        "\n\n" +
+        message +
+        "\n\nUse official recruitment websites for applications."
+    );
+}
+
+
+/* =========================================================
    SAVE CAREER PLAN
-========================= */
+========================================================= */
 
 function saveCareerPlan() {
+
+    if (!selectedDegree) {
+
+        alert("Please select your degree first.");
+
+        return;
+    }
 
     const plan = {
 
         degree: selectedDegree,
 
+        course: selectedCourse,
+
+        bscGroup: selectedBScGroup,
+
         interest: selectedInterest,
 
-        savedAt:
-            new Date().toLocaleDateString()
+        date: new Date().toLocaleString()
     };
 
-
     localStorage.setItem(
-        "myCareerPlan",
+        "nextStepCareerPlan",
         JSON.stringify(plan)
     );
 
+    updateSavedInformation();
 
-    alert(
-        "✅ Career Plan Saved Successfully!"
-    );
+    alert("✅ Your career plan has been saved!");
 }
 
 
-/* =========================
-   SHOW MY CAREER PLAN
-========================= */
+/* =========================================================
+   UPDATE SAVED INFORMATION
+========================================================= */
 
-function showCareerPlan() {
+function updateSavedInformation() {
 
-    const saved =
-        localStorage.getItem("myCareerPlan");
+    const savedPlan =
+        localStorage.getItem("nextStepCareerPlan");
 
-
-    if (!saved) {
-
-        alert(
-            "⚠️ First save your Career Plan."
-        );
-
+    if (!savedPlan) {
         return;
     }
 
+    try {
 
-    const plan =
-        JSON.parse(saved);
+        const plan = JSON.parse(savedPlan);
 
+        setText(
+            "savedDegree",
+            plan.degree || "Not Selected"
+        );
 
-    showScreen(
-        "careerPlanScreen"
-    );
+        setText(
+            "savedBscGroup",
+            plan.bscGroup || "Not Selected"
+        );
 
+        setText(
+            "savedInterest",
+            plan.interest || "Not Selected"
+        );
 
-    const degree =
-        document.getElementById("savedDegree");
+        setText(
+            "savedDate",
+            plan.date || "Not Available"
+        );
 
-    const interest =
-        document.getElementById("savedInterest");
+        setText(
+            "profileDegree",
+            plan.degree || "Not Selected"
+        );
 
-    const savedDate =
-        document.getElementById("savedDate");
+        setText(
+            "profileBscGroup",
+            plan.bscGroup || "Not Selected"
+        );
 
+        setText(
+            "profileInterest",
+            plan.interest || "Not Selected"
+        );
 
-    if (degree) {
+    } catch (error) {
 
-        degree.innerText =
-            plan.degree ||
-            "Not Selected";
-    }
-
-
-    if (interest) {
-
-        interest.innerText =
-            plan.interest ||
-            "Not Selected";
-    }
-
-
-    if (savedDate) {
-
-        savedDate.innerText =
-            plan.savedAt ||
-            "Not Available";
-    }
-}
-
-
-/* =========================
-   GOVERNMENT JOBS
-========================= */
-
-function openGovJobs(type) {
-
-    let url = "";
-
-
-    if (type === "SSC") {
-
-        url =
-            "https://ssc.gov.in/";
-    }
-
-    else if (type === "Banking") {
-
-        url =
-            "https://www.ibps.in/";
-    }
-
-    else if (type === "Railway") {
-
-        url =
-            "https://www.rrbapply.gov.in/";
-    }
-
-    else if (type === "State Government") {
-
-        url =
-            "https://www.ncs.gov.in/";
-    }
-
-
-    if (url !== "") {
-
-        window.open(
-            url,
-            "_blank"
+        console.log(
+            "Could not load saved career plan."
         );
     }
 }
 
 
-/* =========================
-   CAREER PROGRESS
-========================= */
+/* =========================================================
+   SHOW CAREER PLAN
+========================================================= */
 
-function showProgress() {
+function showCareerPlan() {
 
-    showScreen(
-        "progressScreen"
-    );
+    updateSavedInformation();
 
-    loadProgress();
+    showScreen("careerPlanScreen");
 }
 
+
+/* =========================================================
+   PROGRESS
+========================================================= */
 
 function saveProgress() {
 
@@ -1003,29 +954,45 @@ function saveProgress() {
             "#progressScreen input[type='checkbox']"
         );
 
+    let completed = 0;
 
-    let progress = [];
+    checkboxes.forEach(function(box) {
 
-
-    checkboxes.forEach(
-        function(box) {
-
-            progress.push(
-                box.checked
-            );
+        if (box.checked) {
+            completed++;
         }
-    );
+    });
 
+    let percentage = 0;
+
+    if (checkboxes.length > 0) {
+
+        percentage =
+            Math.round(
+                (completed / checkboxes.length) * 100
+            );
+    }
 
     localStorage.setItem(
         "nextStepProgress",
-        JSON.stringify(progress)
+        percentage.toString()
     );
 
+    setText(
+        "progressText",
+        "Progress: " + percentage + "%"
+    );
 
-    updateProgress();
+    setText(
+        "profileProgress",
+        percentage + "%"
+    );
 }
 
+
+/* =========================================================
+   LOAD PROGRESS
+========================================================= */
 
 function loadProgress() {
 
@@ -1034,235 +1001,138 @@ function loadProgress() {
             "nextStepProgress"
         );
 
+    const percentage =
+        saved ? parseInt(saved) : 0;
 
-    if (!saved) {
+    setText(
+        "progressText",
+        "Progress: " + percentage + "%"
+    );
 
-        updateProgress();
+    setText(
+        "profileProgress",
+        percentage + "%"
+    );
+}
+
+
+/* =========================================================
+   SHOW PROGRESS
+========================================================= */
+
+function showProgress() {
+
+    loadProgress();
+
+    showScreen("progressScreen");
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+function showProfile() {
+
+    updateSavedInformation();
+
+    const name =
+        localStorage.getItem(
+            "nextStepProfileName"
+        );
+
+    setText(
+        "profileName",
+        name || "Not Added"
+    );
+
+    loadProgress();
+
+    showScreen("profileScreen");
+}
+
+
+/* =========================================================
+   EDIT PROFILE
+========================================================= */
+
+function editProfile() {
+
+    const currentName =
+        localStorage.getItem(
+            "nextStepProfileName"
+        ) || "";
+
+    const name =
+        prompt(
+            "Enter your name:",
+            currentName
+        );
+
+    if (name === null) {
+        return;
+    }
+
+    const cleanName =
+        name.trim();
+
+    if (cleanName === "") {
+
+        alert("Please enter your name.");
 
         return;
     }
 
-
-    const progress =
-        JSON.parse(saved);
-
-
-    const checkboxes =
-        document.querySelectorAll(
-            "#progressScreen input[type='checkbox']"
-        );
-
-
-    checkboxes.forEach(
-        function(box, index) {
-
-            box.checked =
-                progress[index] || false;
-        }
+    localStorage.setItem(
+        "nextStepProfileName",
+        cleanName
     );
 
-
-    updateProgress();
-}
-
-
-function updateProgress() {
-
-    const checkboxes =
-        document.querySelectorAll(
-            "#progressScreen input[type='checkbox']"
-        );
-
-
-    let completed = 0;
-
-
-    checkboxes.forEach(
-        function(box) {
-
-            if (box.checked) {
-                completed++;
-            }
-        }
+    setText(
+        "profileName",
+        cleanName
     );
 
-
-    let percentage = 0;
-
-
-    if (checkboxes.length > 0) {
-
-        percentage =
-            Math.round(
-                (completed /
-                    checkboxes.length) *
-                100
-            );
-    }
-
-
-    const progressText =
-        document.getElementById(
-            "progressText"
-        );
-
-
-    if (progressText) {
-
-        progressText.innerText =
-            "Progress: " +
-            percentage +
-            "%";
-    }
+    alert("✅ Profile updated!");
 }
 
 
-/* =========================
-   PROFILE
-========================= */
-
-function showProfile() {
-
-    showScreen(
-        "profileScreen"
-    );
-
-
-    const name =
-        localStorage.getItem(
-            "nextStepName"
-        );
-
-
-    const profileName =
-        document.getElementById(
-            "profileName"
-        );
-
-
-    const profileDegree =
-        document.getElementById(
-            "profileDegree"
-        );
-
-
-    const profileInterest =
-        document.getElementById(
-            "profileInterest"
-        );
-
-
-    const profileProgress =
-        document.getElementById(
-            "profileProgress"
-        );
-
-
-    if (profileName) {
-
-        profileName.innerText =
-            name ||
-            "Not Added";
-    }
-
-
-    if (profileDegree) {
-
-        profileDegree.innerText =
-            selectedDegree ||
-            "Not Selected";
-    }
-
-
-    if (profileInterest) {
-
-        profileInterest.innerText =
-            selectedInterest ||
-            "Not Selected";
-    }
-
-
-    if (profileProgress) {
-
-        const saved =
-            localStorage.getItem(
-                "nextStepProgress"
-            );
-
-
-        if (saved) {
-
-            const progress =
-                JSON.parse(saved);
-
-            let completed = 0;
-
-
-            progress.forEach(
-                function(item) {
-
-                    if (item === true) {
-                        completed++;
-                    }
-                }
-            );
-
-
-            const percentage =
-                Math.round(
-                    (completed /
-                        progress.length) *
-                    100
-                );
-
-
-            profileProgress.innerText =
-                percentage + "%";
-
-        } else {
-
-            profileProgress.innerText =
-                "0%";
-        }
-    }
-}
-
-
-function editProfile() {
-
-    const name =
-        prompt(
-            "Enter your name:"
-        );
-
-
-    if (
-        name &&
-        name.trim() !== ""
-    ) {
-
-        localStorage.setItem(
-            "nextStepName",
-            name.trim()
-        );
-
-
-        showProfile();
-    }
-}
-
-
-/* =========================
-   RESTART
-========================= */
+/* =========================================================
+   RESTART APP
+========================================================= */
 
 function restartApp() {
 
-    selectedDegree = "";
+    const confirmRestart =
+        confirm(
+            "Do you want to start again?"
+        );
 
+    if (!confirmRestart) {
+        return;
+    }
+
+    selectedDegree = "";
+    selectedCourse = "";
+    selectedBScGroup = "";
     selectedInterest = "";
 
-    showScreen(
-        "welcomeScreen"
-    );
+    showScreen("welcomeScreen");
 }
+
+
+/* =========================================================
+   LOAD SAVED DATA WHEN PAGE OPENS
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        updateSavedInformation();
+
+        loadProgress();
+
+    }
+);
+    
