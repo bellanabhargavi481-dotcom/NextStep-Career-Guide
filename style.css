@@ -7,69 +7,66 @@
 
 body {
     min-height: 100vh;
-
-    background:
-        linear-gradient(
-            135deg,
-            #667eea,
-            #764ba2
-        );
-
+    background: linear-gradient(135deg, #667eea, #764ba2);
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 15px;
+    padding: 12px;
 }
 
 .app {
     width: 100%;
-    max-width: 620px;
+    max-width: 650px;
 }
 
 .screen {
     display: none;
-
     background: #ffffff;
-
     border-radius: 28px;
-
-    padding: 30px 22px;
-
+    padding: 28px 20px;
     min-height: 650px;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0, 0, 0, 0.20);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.20);
 }
 
 .screen.active {
     display: block;
 }
 
+h1 {
+    text-align: center;
+    font-size: 46px;
+    color: #222;
+}
 
-/* WELCOME */
+h2 {
+    text-align: center;
+    font-size: 29px;
+    color: #222;
+    margin: 15px 0;
+}
+
+h3 {
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.logo {
+    text-align: center;
+    font-size: 78px;
+    margin-top: 45px;
+}
 
 #welcomeScreen {
     text-align: center;
 }
 
-.logo {
-    font-size: 80px;
-    margin-top: 50px;
-}
-
-h1 {
-    font-size: 48px;
-    margin-top: 15px;
-    color: #222;
-}
-
 .tagline {
     color: #667eea;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: bold;
-    margin-top: 10px;
 }
 
 .description {
@@ -79,70 +76,48 @@ h1 {
     margin: 25px 10px 40px;
 }
 
-
-/* HEADINGS */
-
-.top-icon {
+.top-icon,
+.result-icon {
     text-align: center;
-    font-size: 55px;
-    margin-top: 10px;
+    font-size: 60px;
 }
 
-h2 {
-    text-align: center;
-    font-size: 28px;
-    color: #222;
-    margin: 15px 0 10px;
-}
-
-.screen > p {
+.subtitle {
     text-align: center;
     color: #666;
-    line-height: 1.5;
+    margin-bottom: 20px;
 }
-
-
-/* BUTTON */
 
 button {
     width: 100%;
-
     border: none;
     border-radius: 16px;
-
-    padding: 17px;
-
+    padding: 16px;
     margin-top: 12px;
-
     background: #667eea;
-
     color: white;
-
     font-size: 17px;
     font-weight: bold;
-
     cursor: pointer;
-
     transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.92;
 }
 
 button:active {
     transform: scale(0.97);
 }
 
-
-/* OPTIONS */
-
 .options {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .options button {
     background: #f3f5ff;
     color: #333;
-
     border: 2px solid #e5e8ff;
-
     text-align: left;
 }
 
@@ -151,55 +126,25 @@ button:active {
     color: white;
 }
 
-
-/* RESULT */
-
-.result-screen {
-    overflow-y: auto;
-}
-
-.result-icon {
-    text-align: center;
-    font-size: 60px;
-}
-
-.result-screen h2 {
-    color: #667eea;
-}
-
 .result-intro {
     background: #f3f5ff;
-
     border-radius: 16px;
-
-    padding: 15px;
-
+    padding: 16px;
     margin: 20px 0;
-
     text-align: center;
-
     color: #444;
-
-    line-height: 1.6;
+    font-size: 18px;
 }
-
-
-/* RESULT CARDS */
 
 .result-card {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-
     background: #f8f9ff;
-
     border: 1px solid #e5e8ff;
-
     border-radius: 20px;
-
-    padding: 18px;
-
-    margin-top: 14px;
+    padding: 20px;
+    margin-top: 16px;
 }
 
 .main-card {
@@ -207,48 +152,33 @@ button:active {
 }
 
 .card-icon {
-    font-size: 30px;
-    min-width: 40px;
+    font-size: 34px;
+    min-width: 55px;
 }
 
 .result-card h3 {
-    color: #333;
-    margin-bottom: 8px;
-    font-size: 19px;
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 
 .result-card p {
-    white-space: pre-line;
-
     color: #666;
-
     line-height: 1.7;
-
-    font-size: 16px;
+    font-size: 17px;
 }
-
-
-/* ROADMAP */
 
 .roadmap-card {
     background: #f8f9ff;
-
     border: 1px solid #e5e8ff;
-
     border-radius: 22px;
-
     padding: 20px;
-
-    margin-top: 16px;
+    margin-top: 18px;
 }
 
 .roadmap-card h3 {
     text-align: center;
-
     color: #667eea;
-
     margin-bottom: 20px;
-
     font-size: 21px;
 }
 
@@ -260,54 +190,146 @@ button:active {
 
 .month {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
+    margin-bottom: 12px;
 }
 
 .month span {
     width: 40px;
     height: 40px;
-
+    min-width: 40px;
     border-radius: 50%;
-
     background: #667eea;
-
     color: white;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-weight: bold;
 }
 
 .month p {
     color: #555;
-
-    line-height: 1.5;
 }
 
 .month strong {
     color: #333;
 }
 
+input {
+    width: 100%;
+    padding: 17px;
+    border: 2px solid #ddd;
+    border-radius: 16px;
+    font-size: 17px;
+    margin-top: 15px;
+    outline: none;
+}
 
-/* MOBILE */
+input:focus {
+    border-color: #667eea;
+}
+
+.job-result {
+    background: #f8f9ff;
+    border: 1px solid #e5e8ff;
+    border-radius: 20px;
+    padding: 18px;
+    margin-top: 18px;
+}
+
+.job-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.job-item:last-child {
+    border-bottom: none;
+}
+
+.job-title {
+    font-size: 19px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.job-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.apply-btn {
+    width: auto;
+    margin: 0;
+    padding: 10px 13px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.gov-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.gov-card {
+    background: #f8f9ff;
+    border: 1px solid #e5e8ff;
+    border-radius: 18px;
+    padding: 17px;
+}
+
+.gov-card h3 {
+    color: #667eea;
+    margin-bottom: 7px;
+    font-size: 20px;
+}
+
+.gov-card p {
+    color: #666;
+}
+
+.gov-card button {
+    margin-top: 12px;
+}
+
+.profile-box {
+    background: #f5f7ff;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 14px;
+    border: 1px solid #e0e5ff;
+}
+
+.profile-box strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.back {
+    background: #555;
+}
 
 @media (max-width: 480px) {
 
     body {
-        padding: 8px;
+        padding: 7px;
     }
 
     .screen {
-        padding: 25px 16px;
+        padding: 24px 15px;
         border-radius: 24px;
     }
 
     .logo {
         font-size: 65px;
-        margin-top: 35px;
+        margin-top: 30px;
     }
 
     h1 {
@@ -319,84 +341,19 @@ button:active {
     }
 
     .result-card {
-        padding: 15px;
+        padding: 16px;
+    }
+
+    .result-card h3 {
+        font-size: 20px;
     }
 
     .result-card p {
         font-size: 15px;
     }
-  .job-buttons {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
-.apply-btn {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.apply-btn:hover {
-    opacity: 0.85;
-}
-  .gov-options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.gov-options button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-  .progress-item {
-    background: #f5f7ff;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 10px;
-    text-align: left;
-}
-
-.progress-item input {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-}
-  .profile-info {
-    margin: 20px 0;
-}
-.profile-box {
-    background: #f5f7ff;
-    padding: 18px;
-    margin: 12px 0;
-    border-radius: 14px;
-    text-align: left;
-    border: 1px solid #e0e5ff;
-}
-
-.profile-box strong {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 18px;
-}
-
-.profile-box p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
+    .apply-btn {
+        font-size: 12px;
+        padding: 9px 10px;
+    }
 }
